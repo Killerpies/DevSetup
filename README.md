@@ -58,13 +58,13 @@ DevSetup/
 ├── Provisioning_Files/
 │ ├── postprovision.sh
 │ ├── Vagrantfile
-│ ├── deletevm.bat
 │ └── ubuntu_setup.sh
 │
-├── run.bat
-├── install.bat
 ├── config.txt
-└── README.md
+|── deletevm.bat
+├── install.bat
+|── README.md
+└── run.bat
 ```
 ### Adjust Your Config
 - **RESOLUTION**: The screen resolution of the virtual machine. This setting determines the dimensions of the virtual display when the VM is running. Adjust this value to match your monitor's resolution or your preferred display settings.
@@ -86,6 +86,27 @@ DevSetup/
     - An Ubuntu VirtualBox GUI should appear
 - Username: vagrant
 - Password: vagrant
+
+
+If everything was successful. Your fileformat should look like this
+```
+DevSetup_vagrant_projects/
+DevSetup/
+│
+├── Provisioning_Files/
+│ ├── .vagrant
+│ ├── postprovision.sh
+│ ├── ubuntu_setup.sh
+│ ├── Vagrantfile
+│ └── VirtualBoxLocation.txt
+│
+├── Shared/
+├── config.txt
+|── deletevm.bat
+├── install.bat
+|── README.md
+└── run.bat
+```
 
 ### If the program doesn't work
 - Click `deletevm.bat` under `./Privisioning_Files`
