@@ -11,6 +11,7 @@
 .gitignore      text
 *.md            text diff=markdown
 *.sh            text
+*.h            text
 *.bat           text eol=crlf
 
 #
