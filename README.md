@@ -56,7 +56,6 @@ This should be what you have:
 DevSetup/
 │
 ├── Provisioning_Files/
-│ ├── locateVBox.bat
 │ ├── postprovision.sh
 │ ├── Vagrantfile
 │ ├── deletevm.bat

@@ -5,6 +5,9 @@ copy Provisioning_Files\postprovision.sh shared
 
 cd Provisioning_Files
 
+REM Find the location of VirtualBox
+dir /S /B "C:\Program Files\VBoxManage.exe" > VirtualBoxLocation.txt 2>&1
+
 REM Install Vagrant plugin
 vagrant plugin install vagrant-vbguest
 
@@ -14,10 +17,8 @@ vagrant up --provision
 REM Log in as the "vagrant" user and execute post-provisioning script
 vagrant ssh -c "bash /home/vagrant/shared/postprovision.sh"
 
-
 REM Remove postprovision.sh
 del ..\shared\postprovision.sh
-
 
 REM Shut down the Vagrant environment
 vagrant halt

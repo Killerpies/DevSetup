@@ -16,14 +16,6 @@ Vagrant.configure("2") do |config|
   config.vbguest.auto_update = true
 
 
-  config.trigger.before :provision do |trigger|
-    trigger.info = "Finding the location of Virtualbox (VBoxManage.exe)"
-    trigger.run = { path: "locateVBox.bat", args: [] }
-    trigger.name = "Create shared directory"
-    trigger.run = { inline: "mkdir -p #{__dir__}/../shared" }
-  end
-
-
   # Share the current directory as a synced folder with the guest VM
   config.vm.synced_folder "#{__dir__}/../shared", "/home/vagrant/shared", owner: "vagrant"
 
