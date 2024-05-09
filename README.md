@@ -95,7 +95,9 @@ DevSetup/
 - Password: vagrant
 
 
-If everything was successful. Your fileformat should look like this
+If everything was successful. Your fileformat should look like this.
+Ideally when doing dev work inside the VM. You will use `/home/vagrant/projects`.
+That folder is shared with your host machine under `DevSetup_vagrant_projects`
 ```
 DevSetup_vagrant_projects/
 DevSetup/
