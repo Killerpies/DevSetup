@@ -12,36 +12,36 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
+  config.vm.box = "ubuntu/focal64"
+  config.vbguest.auto_update = true
 
 
-  config.vm.box = "ubuntu/trusty64"
-  config.vm.box_version = "20190514.0.0"
+  config.trigger.before :provision do |trigger|
+    trigger.info = "Finding the location of Virtualbox (VBoxManage.exe)"
+    trigger.run = { path: "locateVBox.bat", args: [] }
+    trigger.name = "Create shared directory"
+    trigger.run = { inline: "mkdir -p #{__dir__}/../shared" }
+  end
+
+
+  # Share the current directory as a synced folder with the guest VM
+  config.vm.synced_folder "#{__dir__}/../shared", "/home/vagrant/shared", owner: "vagrant"
+
 
   # Forward ports to local PC
   config.vm.network "forwarded_port", guest: 8080, host: 8080
   config.vm.network "forwarded_port", guest: 3000, host: 3000
 
   config.vm.provider "virtualbox" do |vb|
-    vb.name = "Dev-environment"
+    vb.name = "Dev-environment-focal-fossa"
     # Memory of VM
     vb.memory = "4000"
+    # vb.gui = true
   end
 
-  config.trigger.before :provision do |trigger|
-    trigger.info = "Finding the location of Virtualbox (VBoxManage.exe)"
-    trigger.run = { path: "locateVBox.bat", args: [] }
-  end
-
-  config.trigger.after :up do |trigger|
-    trigger.info = "Running VM"
-    trigger.run = { path: "run.bat", args: [] }
-    trigger.info = "If this is the first time you have started the container. Please restart (Run 'Vagrant Halt' Then 'Vagrant Up')"
-  end
 
   # Install apps I use for development
   config.vm.provision :shell, path: "./ubuntu_setup.sh"
-
-  
 
 
   # Disable automatic box update checking. If you disable this, then
