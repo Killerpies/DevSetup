@@ -17,7 +17,9 @@ Vagrant.configure("2") do |config|
 
 
   # Share the current directory as a synced folder with the guest VM
+  config.vm.synced_folder ".", "/vagrant", disabled: true
   config.vm.synced_folder "#{__dir__}/../shared", "/home/vagrant/shared", owner: "vagrant"
+  config.vm.synced_folder "#{__dir__}/../../vagrant_projects", "/home/vagrant/projects", owner: "vagrant"
 
 
   # Forward ports to local PC

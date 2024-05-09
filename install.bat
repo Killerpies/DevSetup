@@ -1,8 +1,9 @@
 @echo off
 
+setlocal 
+mkdir __dir__\..\..\vagrant_projects
 mkdir shared
 copy Provisioning_Files\postprovision.sh shared
-
 cd Provisioning_Files
 
 REM Find the location of VirtualBox
@@ -25,5 +26,5 @@ del ..\shared\postprovision.sh
 
 REM Shut down the Vagrant environment
 vagrant halt
-
 cd ..
+endlocal
