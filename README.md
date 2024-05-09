@@ -79,7 +79,7 @@ DevSetup/
 
 - **GRAPHICS_CONTROLLER**: The type of graphics controller used by the virtual machine. This setting determines how the VM handles graphics rendering and display management. Options include "VBoxVGA", "VBoxSVGA", "VMSVGA", and others. Adjust this value based on compatibility and performance considerations for your specific use case.
 
-### Run It
+## Run It
 - Click `install.bat`
     - Do not touch anything. It will run for a while and then shut off.
 - Run `run.bat`
