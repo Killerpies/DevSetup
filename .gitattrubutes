@@ -1,29 +1,21 @@
-# THIS IS ONLY FOR THE gitattributes REPOSITORY.
-# Handle line endings automatically for files detected as text
-# and leave all files detected as binary untouched.
-*               text=auto
-
 #
-# The above will handle all files NOT found below
+# Configure line ending normalisation for this repository.
+# See http://schacon.github.io/git/gitattributes.html for more information.
 #
-# These files are text and should be normalized (Convert crlf => lf)
-*.gitattributes text
-.gitignore      text
-*.md            text diff=markdown
-*.sh            text
-*.h            text
-*.bat           text eol=crlf
-
+# Also each developer should configure the old style normalisation on her workstation
+# (see http://timclem.wordpress.com/2012/03/01/mind-the-end-of-your-line/):
 #
-# Exclude files from exporting
+# Windows user should use: git config --global core.autocrlf = true
+# Unix/Linux users should use: git config --global core.autocrlf = input
 #
 
-.gitattributes  export-ignore
-.gitignore      export-ignore
+# Auto detect text files and perform LF normalization
+*       text=auto
 
-#
-# Enable syntax highlighting for files with `.gitattributes` extensions.
-#
-*.gitattributes linguist-language=gitattributes
-*.gitattributes linguist-detectable=true
-*.gitattributes linguist-documentation=false
+*.txt   text
+*.java  text diff=java
+*.xml   text diff=xml
+# Shell scripts require LF
+*.sh    text eol=lf
+# Batch scripts require CRLF
+*.bat   text eol=crlf
