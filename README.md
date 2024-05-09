@@ -83,3 +83,11 @@ DevSetup/
 - Click `install.bat`
     - Do not touch anything. It will run for a while and then shut off.
 - Run `run.bat`
+    - An Ubuntu VirtualBox GUI should appear
+- Username: vagrant
+- Password: vagrant
+
+### If the program doesn't work
+- Click `deletevm.bat` under `./Privisioning_Files`
+- Delete your `.vagrant` folder
+- Re-run `install.bat`
