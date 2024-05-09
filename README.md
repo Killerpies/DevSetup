@@ -60,6 +60,8 @@ DevSetup/
 │ ├── Vagrantfile
 │ └── ubuntu_setup.sh
 │
+├── .gitattributes
+├── .gitignore
 ├── config.txt
 |── deletevm.bat
 ├── install.bat
@@ -84,6 +86,11 @@ DevSetup/
     - Do not touch anything. It will run for a while and then shut off.
 - Run `run.bat`
     - An Ubuntu VirtualBox GUI should appear
+    - Your resolution will not be correct the first time launching.
+        - Login to the GUI right click desktop
+            - Display settings
+            - Set resolution
+            - Apply
 - Username: vagrant
 - Password: vagrant
 
@@ -112,3 +119,22 @@ DevSetup/
 - Click `deletevm.bat` under `./Privisioning_Files`
 - Delete your `.vagrant` folder
 - Re-run `install.bat`
+
+
+## Diagnosing Issues
+- If your instance says a port is taken after multiple restarts.
+    - Open VirtualBox
+        - Stop your instance if running
+        - Run `run.bat`
+- If your instance says the name is taken
+    - Open VirtualBox
+        - Remove (Delete) the VM from the menu
+        - Run `run.bat`
+        - If the error continues
+            - locate where VirtualBox stores VM's (You can right click and VM and click 'Show in Explorer')
+                - Delete the folder with your VM's name on it
+- If extensions / packages are not installing (Error like 'could not find {extension name}')
+    - Confirm that the `.sh` files are still using `LF` line endings
+        - Applications like VS Code will show the the line ending type in the bottom right
+        - Git can sometimes change the endings when cloning. However `.gitattributes` should prevent this
+    - Other files should be using `CLRF` line endings
