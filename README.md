@@ -122,6 +122,13 @@ DevSetup/
 - Delete your `.vagrant` folder
 - Re-run `install.bat`
 
+### Setup Git
+- Create personal access token
+    - (Under developer tools in settings of GitHub)
+- ```git config --global credential.helper store```
+- ```git pull``` or ```git clone``` your repo
+    - Username: {Your Username}
+    - Password: {Your Personal Access Token}
 
 ## Diagnosing Issues
 - If your instance says a port is taken after multiple restarts.
